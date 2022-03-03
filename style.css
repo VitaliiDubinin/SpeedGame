@@ -43,7 +43,7 @@ h1 {
 .buttons {
   position: relative;
   top: 10vh;
-  left: 35vw;
+  left: 38vw;
   display: flex;
   justify-content: space-between;
   width: 20vw;
@@ -57,6 +57,7 @@ button {
   width: 5vw;
   height: 3rem;
   color: azure;
+  border-radius: 3rem;
 }
 
 .butCirc {
@@ -104,4 +105,8 @@ button {
   top: 0px;
   right: 0px;
   border-radius: 3rem;
+}
+
+.circle.active {
+  background-image: radial-gradient(red, orange, yellow);
 }
