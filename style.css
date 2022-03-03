@@ -70,6 +70,7 @@ button {
   left: 25vw;
   flex-wrap: wrap;
   margin-right: none;
+  pointer-events: none;
 }
 
 #overlay {
@@ -109,4 +110,8 @@ button {
 
 .circle.active {
   background-image: radial-gradient(red, orange, yellow);
+}
+
+#stop {
+  display: none;
 }

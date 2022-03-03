@@ -3,11 +3,24 @@ const startButton = document.querySelector("#start");
 const endButton = document.querySelector("#stop");
 const overlay = document.querySelector("#overlay");
 const closeButton = document.querySelector("#close");
+const scoreText = document.querySelector("#score");
+const resultText = document.querySelector("#result");
+
 let active = 0;
+let score = 0;
+let timer;
+let pace = 1000;
+let rounds = 0;
 
 const clickedCircle = (i) => {
-  i += 1;
   console.log("clicked circle was: ", i);
+  if (i !== active) {
+    endGame();
+  } else {
+    score++;
+    rounds--;
+    scoreText.textContent = score;
+  }
 };
 
 circles.forEach((circle, i) => {
@@ -19,15 +32,25 @@ function getRndInt(min, max) {
 }
 
 const startGame = () => {
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].style.pointerEvents = "auto";
+  }
+  startButton.style.display = "none";
+  endButton.style.display = "inline";
   console.log("game started");
   let nextActive = pickNew(active);
   circles[nextActive].classList.toggle("active");
   circles[active].classList.remove("active");
   active = nextActive;
   console.log("active circle:", active);
-  score += 1;
-  timer = setTimeout(startGame, 1000);
 
+  timer = setTimeout(startGame, pace);
+  pace = pace - 10;
+
+  if (rounds >= 3) {
+    endGame();
+  }
+  rounds++;
   function pickNew(active) {
     let nextActive = getRndInt(0, 3);
 
@@ -41,7 +64,9 @@ const startGame = () => {
 
 const endGame = () => {
   console.log("game ended");
+  clearTimeout(timer);
   overlay.style.visibility = "visible";
+  resultText.textContent = `Your collect ${score} points`;
 };
 
 const reloadGame = () => {
