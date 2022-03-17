@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&family=Roboto:wght@100&family=Rubik&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Light_Buttons</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="NameOfGame">Speed game</h1>
+      <div class="score">You score is: <span id="score">0</span></div>
+      <section class="butCirc">
+        <div class="circle">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+        <div class="circle">4</div>
+      </section>
+      <section class="buttons">
+        <button type="button" id="start">Start game</button>
+        <button type="button" id="stop">Stop game</button>
+      </section>
+      <section id="overlay">
+        <div class="modal">
+          <p>Great, Game Over!</p>
+          <p id="result"></p>
+          <button type="button" id="close">close</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
